@@ -201,7 +201,7 @@ form.sign-in-form {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
   text-align: center;
   z-index: 6;
 }
@@ -297,6 +297,7 @@ form.sign-in-form {
     min-height: 800px;
     height: 100vh;
   }
+
   .signin-signup {
     width: 100%;
     top: 95%;
@@ -403,9 +404,11 @@ form.sign-in-form {
   .image {
     display: none;
   }
+
   .panel .content {
     padding: 0.5rem 1rem;
   }
+
   .container {
     padding: 1.5rem;
   }

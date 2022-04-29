@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>登录</title>
   <script src="//unpkg.com/vue@next"></script>
-  <script src="//unpkg.com/element-plus"></script>
+  <script src="//unpkg.com/element-plus@2.1.9"></script>
   <script src="//unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css">
   <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css">
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
@@ -171,13 +171,25 @@
           },
         }
       },
-      setup() {
+      created() {
         this.loginLoading = false
         this.signUploading = false
       },
+      mounted() {
+        const sign_in_btn = document.querySelector("#sign-in-btn")
+        const sign_up_btn = document.querySelector("#sign-up-btn")
+        const container = document.querySelector(".container")
+
+        sign_up_btn.addEventListener("click", () => {
+          container.classList.add("sign-up-mode")
+        })
+
+        sign_in_btn.addEventListener("click", () => {
+          container.classList.remove("sign-up-mode")
+        })
+      },
       methods: {
         Login(formData) {
-          console.log(formData)
           this.$refs.loginRef.validate((valid) => {
             if (valid) {
               this.loginLoading = true
@@ -205,18 +217,6 @@
         },
       }
     }).use(ElementPlus).mount("#app")
-
-    const sign_in_btn = document.querySelector("#sign-in-btn")
-    const sign_up_btn = document.querySelector("#sign-up-btn")
-    const container = document.querySelector(".container")
-
-    sign_up_btn.addEventListener("click", () => {
-      container.classList.add("sign-up-mode")
-    })
-
-    sign_in_btn.addEventListener("click", () => {
-      container.classList.remove("sign-up-mode")
-    })
   </script>
 
 </body>
