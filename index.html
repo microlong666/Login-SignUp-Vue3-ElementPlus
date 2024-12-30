@@ -290,6 +290,7 @@
                 setTimeout(() => {
                   ElMessage.success("注册成功");
                   signUpRef.value.resetFields();
+                  signUploading.value = false;
                   document.getElementById("sign-in-btn").click();
                 }, 500);
               }
